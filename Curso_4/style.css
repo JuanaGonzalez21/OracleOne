@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-shadow: 0;
+}
+
+.titulo-principal{
+    padding: 30px;
+}
+
+.body-centrado {
+    text-align: center;
+    padding: 50px;
+    border: 5px solid#000;
+    margin: 10px;
+    background: #dfcc7dc8;
+    padding: 10px;
+}
+
+p {
+    padding: 20px;
+}
+
+em strong {
+    font-weight: 900;
+    color: rgb(172, 98, 9);
+}
+
+img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.lista-items li{
+    font-style: italic;
+    font-size: 20px;
+    padding: 5px;
+    color: white;
+    text-align: right;
+    padding: 20px 100px;
+}
+
+.diferenciales {
+    height: 300px;
+    object-fit: cover;
+    padding: 10px;
+    background-image: url("./diferenciales.jpg");
+    background-size: 100%;
+
+}
+
+.diferenciales h3 {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    padding: 15px;
+}
