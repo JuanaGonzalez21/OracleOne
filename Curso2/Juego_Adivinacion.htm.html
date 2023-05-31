@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function saltarLinea() {
+            document.write("<br>");
+            document.write("<br>");
+            document.write("<br>");
+        }
+
+        function imprimir(frase) {
+            document.write(frase);
+            saltarLinea();
+        }
+        let numeroUsuario = prompt("Ingrese un numero aletorio entre 1 a 10");
+        let numeroComputador = Math.round(Math.random()*10) ;
+
+        if(numeroUsuario == numeroComputador){
+            imprimir("Acertaste");
+        }else {
+            imprimir("El numero del computador era: " + numeroComputador);
+            if(numeroUsuario > numeroComputador){
+                imprimir("Tu número pensado era mayor" );
+            }else {
+                imprimir("Tu número pensado era menor")
+            }
+            
+        }
+
+        
+
+    </script>
+</body>
+
+</html>

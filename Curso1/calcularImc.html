@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular el indice de masa corportal</title>
+</head>
+<body>
+
+    <script>
+
+        function saltarLinea(){
+
+            document.write("<br>")
+            document.write("<br>")
+            document.write("<br>")
+
+        }
+
+        function imprimir(frase){
+
+            document.write(frase)
+            saltarLinea()
+            
+        }
+
+        function calcularImc(peso, altura,nombre){
+
+            let imc = peso / (altura* altura);
+            imprimir("El peso de " + nombre + " es " + Math.round(imc))
+        
+        }
+
+        //let pesoJuana = 72;
+        //let alturaJuana = 1.67;
+        //let imcJuana = pesoJuana / (alturaJuana* alturaJuana);
+        //let imcJuana = calcularImc(pesoJuana, alturaJuana);
+
+        let imcJuana = calcularImc(72, 1.67 , "Juana");
+
+        //imprimir("El peso de Juana es " + imcJuana)
+
+        let pesoJose = 60;
+        let alturaJose = 1.70;
+        //let imcJose = pesoJose / (alturaJose* alturaJose);
+
+        let imcJose = calcularImc(pesoJose, alturaJose , "Jose");
+
+        document.write("<h1> Promedio del peso corporal</h1><br>")
+
+        function calcularPromedio(peso, altura){
+            return imc = peso / (altura * altura);
+        }
+
+        let pesoCamilo = calcularPromedio(65,1.75)
+        let pesoFelipe = calcularPromedio(55,1.60)
+        let pesoSofia = calcularPromedio(70,1.85)
+        let pesoJenny = calcularPromedio(62,1.62)
+
+        document.write("El promedio del imc calculado de todas las personas es " + (Math.round(pesoCamilo+pesoFelipe+pesoSofia+pesoJenny)/4))
+
+
+    </script>
+    
+</body>
+</html>
