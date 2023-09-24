@@ -4,12 +4,14 @@ import Input from '../Inputs/Input'
 import List from '../ListOptions/List'
 import Button from '../Button/Button'
 
-function Form() {
+function Form(props) {
 
     const [nombre, setNombre] = useState("")
     const [puesto, setPuesto] = useState("")
     const [foto, setFoto] = useState("")
     const [equipo, setEquipo] = useState("")
+
+    const { registrarColaborador } = props
 
     const manejarEnvio = (e) => {
         //Se que quita la responsabilidad al navegador de como tiene que comportarse
@@ -22,7 +24,7 @@ function Form() {
             equipo: equipo
         }
 
-        console.log(datosEnviar)
+        registrarColaborador(datosEnviar)
     }
 
 
@@ -52,6 +54,7 @@ function Form() {
                 <List
                     valor={equipo}
                     setValor={setEquipo}
+                    equipos ={props.equipos}
 
                 />
                 <Button>
