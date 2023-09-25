@@ -6,9 +6,9 @@ function Equipo(props) {
 
     //Destructuración
     const { colorPrimario, colorSecundario, titulo } = props.datos
-    const { colaboradores, eliminarColaborador } = props
+    const { colaboradores, eliminarColaborador, actualizarColor } = props
 
-    console.log(colaboradores.length > 0)
+    // console.log(colaboradores.length > 0)
 
     const estiloTitulo = { borderColor: colorPrimario }
     const estiloSecundario = { backgroundColor: colorSecundario }
@@ -17,6 +17,13 @@ function Equipo(props) {
             colaboradores.length > 0 &&
             <div>
                 <section className='equipo' style={estiloSecundario}>
+                    <input
+                        type='color'
+                        className='input-color'
+                        value={colorSecundario}
+                        onChange={(e) =>{
+                            actualizarColor(e.target.value, titulo)}}
+                    />
                     <h3 style={estiloTitulo}>{titulo}</h3>
                     <div className='colaboradores'>
                         {

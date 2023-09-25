@@ -19,31 +19,8 @@ const App = () => {
     nombre: "Juana Gonzalez",
     puesto: "Dev"
 
-  }]);
-  //Ternario --> tengamos una condicion ? y si esta condicion es verdadera se muestra lo que pongas = 
-  //condicion ? seMuestra : noSeMuestra
-  //condicion && seMuestra
-
-  const cambiarMostrar = () => {
-    actualizarMostrar(!mostrarForm)
-  }
-
-  //Registrar Colaborador
-
-  const registrarColaborador = (colaborador) => {
-    console.log("Nuevo colaborador", colaborador)
-
-    //Concepto Spread opator
-    actualizarColaboradores([...colaboradores, colaborador])
-  }
-
-  const eliminarColaborador = () =>{
-    console.log("Eliminar Colaborador")
-  }
-
-  //Lista de equipos
-
-  const equipos = [
+  }]); 
+  const [equipos,organizarEquipos] = useSate([
     {
       titulo: "Programacion",
       colorPrimario: "#57C278",
@@ -73,7 +50,43 @@ const App = () => {
       colorPrimario: "#FF8A29",
       colorSecundario: "#FFEEDF"
     }
-  ]
+  ])
+  //Ternario --> tengamos una condicion ? y si esta condicion es verdadera se muestra lo que pongas = 
+  //condicion ? seMuestra : noSeMuestra
+  //condicion && seMuestra
+
+  const cambiarMostrar = () => {
+    actualizarMostrar(!mostrarForm)
+  }
+
+  //Registrar Colaborador
+
+  const registrarColaborador = (colaborador) => {
+    console.log("Nuevo colaborador", colaborador)
+
+    //Concepto Spread opator
+    actualizarColaboradores([...colaboradores, colaborador])
+  }
+
+  const eliminarColaborador = () =>{
+    console.log("Eliminar Colaborador")
+  }
+
+  //Actualizar color de equpo
+
+  const actualizarColor = (color, titulo) =>{
+    console.log('Actualizar: ', color, ' ', titulo)
+    const equiposActualizados = equipos.map((equipo)=>{
+      if(equipo.titulo=== titulo){
+        equipo.colorPrimario = color
+      }
+      return equipo
+    })
+  }
+
+  //Lista de equipos
+
+ 
 
   return (
     <div>
@@ -93,6 +106,7 @@ const App = () => {
           datos={equipo}
           colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
           eliminarColaborador = {eliminarColaborador}
+          actualizarColor= { actualizarColor}
         />
         )
       }
