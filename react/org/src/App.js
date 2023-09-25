@@ -5,12 +5,21 @@ import MiOrg from './components/MiOrg/MiOrg';
 import Equipo from './components/Equip/Equipo';
 
 import './App.css';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
 
   const [mostrarForm, actualizarMostrar] = useState(false);
+
   //Iniciar con un arreglo vacio
-  const [colaboradores, actualizarColaboradores] = useState([]);
+  const [colaboradores, actualizarColaboradores] = useState([{
+
+    equipo: "Front End",
+    foto: "https://github.com/JuanaGonzalez21.png",
+    nombre: "Juana Gonzalez",
+    puesto: "Dev"
+
+  }]);
   //Ternario --> tengamos una condicion ? y si esta condicion es verdadera se muestra lo que pongas = 
   //condicion ? seMuestra : noSeMuestra
   //condicion && seMuestra
@@ -25,7 +34,11 @@ const App = () => {
     console.log("Nuevo colaborador", colaborador)
 
     //Concepto Spread opator
-    actualizarColaboradores([...colaboradores,colaborador])
+    actualizarColaboradores([...colaboradores, colaborador])
+  }
+
+  const eliminarColaborador = () =>{
+    console.log("Eliminar Colaborador")
   }
 
   //Lista de equipos
@@ -66,22 +79,25 @@ const App = () => {
     <div>
       <Header />
       {/* {mostrarForm ? <Form/> : <></>}  */}
-      
+
       {
         mostrarForm && <Form
-          equipos={equipos.map((equipo) => equipo.titulo)} 
-          registrarColaborador={registrarColaborador}/>
+          equipos={equipos.map((equipo) => equipo.titulo)}
+          registrarColaborador={registrarColaborador} />
       }
 
       <MiOrg cambiarMostrar={cambiarMostrar} />
       {
-        equipos.map((equipo) => <Equipo 
-        key={equipo.titulo} 
-        datos={equipo}
-        colaboradores={colaboradores}
+        equipos.map((equipo) => <Equipo
+          key={equipo.titulo}
+          datos={equipo}
+          colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
+          eliminarColaborador = {eliminarColaborador}
         />
         )
       }
+
+      <Footer />
 
 
     </div>
