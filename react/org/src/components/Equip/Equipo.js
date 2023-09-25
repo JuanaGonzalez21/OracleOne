@@ -1,17 +1,18 @@
 import React from 'react'
 import "./Equipo.css"
 import Colab from '../Colab/Colab'
+import hexToRgba from 'hex-to-rgba'
 
 function Equipo(props) {
 
     //Destructuración
-    const { colorPrimario, colorSecundario, titulo } = props.datos
-    const { colaboradores, eliminarColaborador, actualizarColor } = props
+    const { colorPrimario, id, titulo } = props.datos
+    const { colaboradores, eliminarColaborador, actualizarColor, like } = props
 
     // console.log(colaboradores.length > 0)
 
     const estiloTitulo = { borderColor: colorPrimario }
-    const estiloSecundario = { backgroundColor: colorSecundario }
+    const estiloSecundario = { backgroundColor: hexToRgba(colorPrimario, 0.6) }
     return <>
         {
             colaboradores.length > 0 &&
@@ -20,9 +21,9 @@ function Equipo(props) {
                     <input
                         type='color'
                         className='input-color'
-                        value={colorSecundario}
+                        value={colorPrimario}
                         onChange={(e) =>{
-                            actualizarColor(e.target.value, titulo)}}
+                            actualizarColor(e.target.value, id)}}
                     />
                     <h3 style={estiloTitulo}>{titulo}</h3>
                     <div className='colaboradores'>
@@ -32,6 +33,7 @@ function Equipo(props) {
                                 key={index}
                                 colorPrimario={colorPrimario}
                                 eliminarColaborador={eliminarColaborador}
+                                like={like}
                             />
                             )
                         }
