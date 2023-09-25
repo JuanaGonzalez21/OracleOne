@@ -2,7 +2,7 @@ import "./MiOrg.css"
 
 function MiOrg(props) {
 
-  console.log(props)
+  //console.log(props)
   //Estado utilizando hooks
   //useState
   
